@@ -1,7 +1,7 @@
 name: Node.js CI
 
 on: 
-  issues:
+  pull_request:
     types: [labeled]
 
 jobs:
