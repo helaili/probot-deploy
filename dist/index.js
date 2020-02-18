@@ -70936,7 +70936,9 @@ function parseConfig(content) {
  */
 async function loadYaml(context, params) {
   try {
-    const response = await context.github.repos.getContent(params);
+    console.log("Here comes context");
+    console.log("hello context", context)
+    const response = await context.github.repos.getContents(params);
     return parseConfig(response.data.content);
   } catch (e) {
     if (e.code === 404) {
@@ -71074,6 +71076,7 @@ module.exports = (...handlers) => {
   // eslint-disable-next-line global-require, import/no-dynamic-require
   const payload = require(path.resolve(payloadPath));
   core.debug(`Receiving event ${JSON.stringify(event)}`);
+
   probot.receive({ name: event, payload, id: uuid.v4() }).catch(err => {
     // setFailed logs the message and sets a failing exit code
     core.setFailed(`Action failed with error: ${err.message}`);
