@@ -1,0 +1,5 @@
+name: 'Probot app name'
+description: 'Probot app description.'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
