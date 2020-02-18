@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Trigger deployment 
 
 on: 
   pull_request:
