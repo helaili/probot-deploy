@@ -70936,7 +70936,8 @@ function parseConfig(content) {
  */
 async function loadYaml(context, params) {
   try {
-    console.log(context)
+    console.log("Here comes context");
+    console.log("hello context", context)
     const response = await context.github.repos.getContent(params);
     return parseConfig(response.data.content);
   } catch (e) {
@@ -71076,7 +71077,6 @@ module.exports = (...handlers) => {
   const payload = require(path.resolve(payloadPath));
   core.debug(`Receiving event ${JSON.stringify(event)}`);
 
-  console.log("Sebass' payload", payload)
   probot.receive({ name: event, payload, id: uuid.v4() }).catch(err => {
     // setFailed logs the message and sets a failing exit code
     core.setFailed(`Action failed with error: ${err.message}`);
