@@ -70936,9 +70936,7 @@ function parseConfig(content) {
  */
 async function loadYaml(context, params) {
   try {
-    console.log("Here comes context");
-    console.log("hello context", context)
-    const response = await context.github.repos.getContent(params);
+    const response = await context.github.repos.getContents(params);
     return parseConfig(response.data.content);
   } catch (e) {
     if (e.code === 404) {
